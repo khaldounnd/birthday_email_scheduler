@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|alpha_spaces',
-            'email' => 'bail|required|unique:users,email',
+            'email' => 'bail|required|email|unique:users,email',
             'password' => 'bail|required|min:6',
         ];
     }

@@ -30,7 +30,7 @@ class UpdateUserRequest extends FormRequest
         $id = \request('id');
         return [
             'name' => 'bail|required|alpha_spaces',
-            'email' => 'bail|required|unique:users,email,'. $id,
+            'email' => 'bail|required|email|unique:users,email,'. $id,
         ];
     }
 }
