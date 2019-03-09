@@ -1,0 +1,1 @@
+{{ Form::button(trans("Back"), array_merge(['class' => 'btn btn-primary','onClick'=>'history.go(-1)'], $attributes?:[]))}}
