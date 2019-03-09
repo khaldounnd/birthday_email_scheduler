@@ -91,9 +91,7 @@ class UserController Extends Controller
         $user = User::where('id', $userId)->first();
         $user->delete();
 
-        $users = User::paginate(25);
-
-        return view('back.users.index', ['users' => $users]);
+        return back();
     }
 
 }

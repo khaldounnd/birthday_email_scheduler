@@ -37,7 +37,7 @@
                                     <td class="table-w-2">
 
                                         <form action="{{ route('users.destroy', [$user->id]) }}" method="post">
-                                            <input class="btn btn-danger btn-xs btn-block" type="submit" value="X" id="destroy">
+                                            <input class="btn btn-danger btn-xs btn-block destroy" type="submit" value="X">
                                             {!! method_field('delete') !!}
                                             {!! csrf_field() !!}
                                         </form>
@@ -63,7 +63,7 @@
 @section('js')
     <script>
         $(document).ready(function () {
-            $('#destroy').on('click', function (e) {
+            $('.destroy').on('click', function (e) {
                 if(!confirm('Are you sure you want to delete this user?')){
                     e.preventDefault();
                 }
