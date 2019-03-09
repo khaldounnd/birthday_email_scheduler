@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Collective\Html\FormBuilder;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,5 +40,11 @@ class AppServiceProvider extends ServiceProvider
         FormBuilder::component('textareaField', 'components.form.textarea_field', ['name', 'value', 'attributes', 'label']);
         FormBuilder::component('submitField', 'components.form.submit_field', ['name', 'attributes']);
         FormBuilder::component('backField', 'components.form.back_field', ['name', 'value', 'attributes']);
+
+        Validator::extend('alpha_spaces', function ($attribute, $value) {
+
+            return preg_match('/^[\pL\s]+$/u', $value);
+
+        });
     }
 }
