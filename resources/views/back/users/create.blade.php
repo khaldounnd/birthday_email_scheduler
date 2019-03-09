@@ -20,7 +20,7 @@
                 {{ Form::emailField('email','',['required', 'class' => 'form-control'], 'Email') }}
             </div>
             <div class="col-12">
-                {{ Form::textField('password','',['minlength' => "6", 'required', 'class' => 'form-control'], 'Password') }}
+                {{ Form::passwordField('password',['minlength' => "6", 'required', 'class' => 'form-control'], 'Password') }}
             </div>
             <div class="col-12">
                 <span class="font-size-small">Password must be at least 6 characters</span>

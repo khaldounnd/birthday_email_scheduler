@@ -10,6 +10,8 @@ namespace App\Http\Controllers\Back;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
@@ -46,10 +48,10 @@ class UserController Extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param StoreUserRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         $inputs = $request->all();
         $this->repository->store($inputs);
@@ -72,7 +74,7 @@ class UserController Extends Controller
      * @param $userId
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function update(Request $request, $userId)
+    public function update(UpdateUserRequest $request, $userId)
     {
         $inputs = $request->all();
         $user = $this->repository->update($inputs, $userId);

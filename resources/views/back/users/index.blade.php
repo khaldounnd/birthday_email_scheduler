@@ -1,6 +1,6 @@
 @extends('back.index')
 @section('title')
-    Create User
+    View Users
 @endsection
 @section('button')
     <a href="{{ route('users.create') }}" class="btn btn-primary">@lang('New User')</a>
@@ -11,7 +11,7 @@
             <div class="box">
 
                 <div class="box-body table-responsive">
-                    <table id="categories" class="table table-striped table-bordered">
+                    <table id="table" class="table table-striped table-bordered">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -37,7 +37,7 @@
                                     <td class="table-w-2">
 
                                         <form action="{{ route('users.destroy', [$user->id]) }}" method="post">
-                                            <input class="btn btn-danger btn-xs btn-block" type="submit" value="X">
+                                            <input class="btn btn-danger btn-xs btn-block" type="submit" value="X" id="destroy">
                                             {!! method_field('delete') !!}
                                             {!! csrf_field() !!}
                                         </form>
@@ -63,7 +63,11 @@
 @section('js')
     <script>
         $(document).ready(function () {
-
+            $('#destroy').on('click', function (e) {
+                if(!confirm('Are you sure you want to delete this user?')){
+                    e.preventDefault();
+                }
+            })
         });
     </script>
 @endsection

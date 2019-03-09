@@ -10,7 +10,7 @@
 {!! Form::open(['route' => ['users.update', $user->id], 'method' => 'PUT', 'enctype' => "multipart/form-data", 'id' => 'editUserForm']) !!}
 
 {!! csrf_field() !!}
-
+<input name="id" type="number" hidden value="{{ $user->id }}">
 <div class="box box-primary">
     <div class="box-body">
         <div class="row mr-0 ml-0">
