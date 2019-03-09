@@ -10,6 +10,12 @@
             <!-- Optionally, you can add icons to the links -->
             <li><a href="{{ route('dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li>
+                <a href="{{ route('employees.index') }}">
+                    <i class="fa fa-fw fa-user-secret"></i>
+                    <span>Employees</span></a>
+            </li>
+
+            <li>
                 <a href="{{ route('users.index') }}">
                 <i class="fa fa-fw fa-users"></i>
                     <span>Users</span></a>

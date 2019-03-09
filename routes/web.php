@@ -31,10 +31,7 @@ Route::group(['namespace' => 'Auth'],function() {
 
 //////////////////////////FRONTEND ROUTES/////////////////////////////////////
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
 
 //////////////////////////BACKEND ROUTES//////////////////////////////////////
 Route::prefix('dashboard')->namespace('Back')->group(function () {
@@ -44,6 +41,11 @@ Route::prefix('dashboard')->namespace('Back')->group(function () {
 
 
     Route::resource('users', 'UserController', [ 'only' => [
+        'index', 'edit', 'update', 'destroy', 'create', 'store'
+        ]]
+    );
+
+    Route::resource('employees', 'EmployeeController', [ 'only' => [
         'index', 'edit', 'update', 'destroy', 'create', 'store'
         ]]
     );
