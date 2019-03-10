@@ -5,6 +5,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 <head>
+    <style>
+        /* Layout */
+        .required_field:after{
+            content:'*';
+            font-size:1.5rem;
+            color:red;
+            position:absolute;
+            margin-left:0.1875rem;
+            top:-0.25rem;
+        }
+
+    </style>
     <meta charset="UTF-8">
     <title>{{ "Dashboard" }}</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -38,7 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="skin-purple">
+<body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
 
     <!-- Header -->
@@ -99,6 +111,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     $('#table').dataTable({
         paging:false,
+        bFilter:false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": false,
     });
 
 </script>
