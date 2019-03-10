@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -59,7 +60,10 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
-    public function logout(Request $request)
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
     {
         $user = Auth::guard('api')->user();
 

@@ -11,16 +11,6 @@ use Illuminate\Http\Request;
 class EmailController extends Controller
 {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
-
     public function sendEmail(Request $request)
     {
         $employees = Employee::all();
@@ -50,6 +40,6 @@ class EmailController extends Controller
             dispatch(new SendEmail($data));
         }
 
-        return 'none';
+        return 'Emails Sent';
     }
 }

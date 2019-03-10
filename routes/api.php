@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'API\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 
-Route::middleware('auth:api')->post('/sendEmail', 'API\EmailController@sendEmail');
+Route::post('/sendEmail', 'API\EmailController@sendEmail');
