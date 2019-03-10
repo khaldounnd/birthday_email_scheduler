@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
 use App\Repositories\EmployeeRepository;
 use Illuminate\Http\Request;
@@ -69,16 +70,16 @@ class EmployeeController Extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param UpdateEmployeeRequest $request
      * @param $employeeId
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function update(Request $request, $employeeId)
+    public function update(UpdateEmployeeRequest $request, $employeeId)
     {
         $inputs = $request->all();
         $employee = $this->repository->update($inputs, $employeeId);
 
-        return view('back.employees.edit', compact('employee'));
+        return back()->with('employee', $employee);
     }
 
     /**

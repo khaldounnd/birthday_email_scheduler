@@ -1,7 +1,7 @@
 @extends('back.index')
 
 @section('title')
-    Create User
+    Edit User
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
 {!! Form::open(['route' => ['employees.update', $employee->id], 'method' => 'PUT', 'enctype' => "multipart/form-data", 'id' => 'editEmployeeForm']) !!}
 
 {!! csrf_field() !!}
-
+<input name="id" type="number" hidden value="{{ $employee->id }}">
 <div class="box box-primary">
     <div class="box-body">
         <div class="row mr-0 ml-0">
